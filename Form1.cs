@@ -53,7 +53,7 @@ namespace asyncawait2
                 {
                     // Log the exception
                 }
-            }, TimeSpan.FromSeconds(3), cancelToken);
+            }, TimeSpan.FromSeconds(2), cancelToken);
         }
 
         public async Task PeriodicFooAsync(Func<Task> taskFactory,TimeSpan interval, CancellationToken cancellationToken)

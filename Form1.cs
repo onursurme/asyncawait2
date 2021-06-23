@@ -16,6 +16,7 @@ namespace asyncawait2
         int otomatik_int;
         CancellationTokenSource source;
         CancellationToken cancelToken;
+        bool otomatik_gonderim_aktif;
         public Form1()
         {
             InitializeComponent();
@@ -34,11 +35,14 @@ namespace asyncawait2
             //        // Log the exception
             //    }
             //}, TimeSpan.FromSeconds(3), cancelToken);
+
+            otomatik_gonderim_aktif = false;
             go();
         }
 
         public void go()
         {
+            otomatik_gonderim_aktif = true;
             otomatik_int = 0;
             TimeSpan t = TimeSpan.FromSeconds(3);
             source = new CancellationTokenSource();
@@ -69,7 +73,7 @@ namespace asyncawait2
         public void FooAsync()
         {
             otomatik_int++;
-            Console.WriteLine(otomatik_int);
+            Console.WriteLine(otomatik_int+" , otomatik gonderim aktif = "+otomatik_gonderim_aktif);
             // return otomatik_int;
         }
 
@@ -81,11 +85,16 @@ namespace asyncawait2
         private void button3_Click(object sender, EventArgs e)
         {
             source.Cancel();
+            otomatik_gonderim_aktif = false;
+            Console.WriteLine(" otomatik gonderim aktif = " + otomatik_gonderim_aktif);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            go();
+            if (!otomatik_gonderim_aktif)
+            {
+                go();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

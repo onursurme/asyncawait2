@@ -44,7 +44,7 @@ namespace asyncawait2
         {
             otomatik_gonderim_aktif = true;
             otomatik_int = 0;
-            TimeSpan t = TimeSpan.FromSeconds(3);
+            // TimeSpan t = TimeSpan.FromSeconds(3);
             source = new CancellationTokenSource();
             cancelToken = source.Token;
             Task statisticsUploader = PeriodicFooAsync(async () =>

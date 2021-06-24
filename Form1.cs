@@ -20,21 +20,6 @@ namespace asyncawait2
         public Form1()
         {
             InitializeComponent();
-            //otomatik_int = 0;
-            //TimeSpan t = TimeSpan.FromSeconds(3);
-            //source = new CancellationTokenSource();
-            //cancelToken = source.Token;
-            //Task statisticsUploader = PeriodicFooAsync(async () =>
-            //{
-            //    try
-            //    {
-            //        FooAsync();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        // Log the exception
-            //    }
-            //}, TimeSpan.FromSeconds(3), cancelToken);
 
             otomatik_gonderim_aktif = false;
             OtoGo();
@@ -74,7 +59,6 @@ namespace asyncawait2
         {
             otomatik_int++;
             Console.WriteLine(otomatik_int+" , otomatik gonderim aktif = "+otomatik_gonderim_aktif);
-            // return otomatik_int;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -93,7 +77,7 @@ namespace asyncawait2
         {
             if (!otomatik_gonderim_aktif)
             {
-                go();
+                OtoGo();
             }
         }
 

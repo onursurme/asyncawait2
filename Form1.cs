@@ -37,21 +37,21 @@ namespace asyncawait2
             //}, TimeSpan.FromSeconds(3), cancelToken);
 
             otomatik_gonderim_aktif = false;
-            go();
+            OtoGo();
         }
 
-        public void go()
+        public void OtoGo()
         {
             otomatik_gonderim_aktif = true;
             otomatik_int = 0;
             // TimeSpan t = TimeSpan.FromSeconds(3);
             source = new CancellationTokenSource();
             cancelToken = source.Token;
-            Task statisticsUploader = PeriodicFooAsync(async () =>
+            Task statisticsUploader = OtoAsync(async () =>
             {
                 try
                 {
-                    FooAsync();
+                    Oto();
                 }
                 catch (Exception ex)
                 {
@@ -60,7 +60,7 @@ namespace asyncawait2
             }, TimeSpan.FromSeconds(2), cancelToken);
         }
 
-        public async Task PeriodicFooAsync(Func<Task> taskFactory,TimeSpan interval, CancellationToken cancellationToken)
+        public async Task OtoAsync(Func<Task> taskFactory,TimeSpan interval, CancellationToken cancellationToken)
         {
             while (true)
             {
@@ -70,7 +70,7 @@ namespace asyncawait2
             }
         }
 
-        public void FooAsync()
+        public void Oto()
         {
             otomatik_int++;
             Console.WriteLine(otomatik_int+" , otomatik gonderim aktif = "+otomatik_gonderim_aktif);

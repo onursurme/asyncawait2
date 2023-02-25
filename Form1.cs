@@ -37,6 +37,7 @@ namespace asyncawait2
                 try
                 {
                     Oto();
+                    Oto2();
                 }
                 catch (Exception ex)
                 {
@@ -61,6 +62,11 @@ namespace asyncawait2
             Console.WriteLine(otomatik_int+" , otomatik gonderim aktif = "+otomatik_gonderim_aktif);
         }
 
+        public void Oto2()
+        {
+            Console.WriteLine("Hello from Oto2");
+        }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             otomatik_int = 0;

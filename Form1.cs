@@ -67,19 +67,19 @@ namespace asyncawait2
             Console.WriteLine("Hello from Oto2");
         }
         
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // sıfırla
         {
             otomatik_int = 0;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // durdur
         {
             source.Cancel();
             otomatik_gonderim_aktif = false;
             Console.WriteLine(" otomatik gonderim aktif = " + otomatik_gonderim_aktif);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) // devam et
         {
             if (!otomatik_gonderim_aktif)
             {
